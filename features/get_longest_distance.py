@@ -10,7 +10,7 @@ def get_longest_distance(img):
     fil.preprocess_image(flatten_percent=85)
     fil.create_mask(border_masking=True, verbose=False,use_existing_mask=True)
     fil.medskel(verbose=False)
-    fil.analyze_skeletons(branch_thresh=40* u.pix, skel_thresh=10 * u.pix, prune_criteria='length')
+    fil.analyze_skeletons(branch_thresh=40 * u.pix, skel_thresh=10 * u.pix, prune_criteria='length')
 
     plt.imshow(fil.skeleton, cmap='gray')
     plt.contour(fil.skeleton_longpath, colors='r')

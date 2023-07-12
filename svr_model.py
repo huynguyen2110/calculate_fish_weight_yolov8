@@ -2,8 +2,10 @@ from flask import Flask, render_template, request
 import os
 from random import random
 from ultralytics import YOLO
-from features.get_history import get_history
+from features.get_history import get_history, predict_future_weight
 from predict import predict
+import json
+from datetime import datetime
 
 # Khởi tạo Flask
 app = Flask(__name__, static_folder='static/upload')
@@ -56,6 +58,15 @@ def home_page():
 def history():
     fishes = get_history()
     return render_template('history.html', fishes=fishes)
+
+
+@app.route('/api/history', methods=['POST'])
+def history_api():
+    day = json.loads(request.data)['day']
+
+    dataReturn = predict_future_weight(day)
+
+    return {'days': dataReturn}
 
 
 if __name__ == '__main__':
