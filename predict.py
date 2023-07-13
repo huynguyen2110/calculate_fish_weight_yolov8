@@ -8,6 +8,7 @@ from features.get_number_and_total_weight import get_number_and_total_weight
 from features.predict_on_images import predict_on_image, overlay, generate_number_fish_specific
 from features.insert_into_database import insert_into_database
 
+
 def predict(img):
     db = connect_database()
     img_path = img
@@ -42,7 +43,6 @@ def predict(img):
         number_fish_specific = get_number_and_total_weight(number_fish_specific, fish_array)
         fish_array.clear()
 
-    print('list', number_fish_specific)
     insert_into_database(total_weight, number_fish_specific)
     cv2.imwrite(img_path, image_copy)
     return number_fish_specific

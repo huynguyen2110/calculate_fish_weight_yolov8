@@ -40,10 +40,7 @@ def insert_into_database(total_weight, number_fish_specific):
     values = (
         total_weight, date.today(), number_fish_specific['carp']['number'], number_fish_specific['tilapia']['number'],
         number_fish_specific['catfish']['number'], number_fish_specific['perch']['number'], length_carp, length_tilapia,
-        length_catfish, length_perch, weight_carp,
-        weight_tilapia,
-        weight_catfish, weight_perch)
-    print("Valuesssssss", values)
+        length_catfish, length_perch, weight_carp, weight_tilapia, weight_catfish, weight_perch)
 
     db.cursor().execute(query, values)
     db.commit()
