@@ -14,7 +14,7 @@ def get_skeleton(img):
     kernel = np.ones((3, 3), np.uint8)
     thinned = cv2.dilate(thinned, kernel, iterations=2)
 
-    cv2.imwrite('static/segment/fish_segment.jpg', thinned)
-    length_object = get_longest_distance('static/segment/fish_segment.jpg')
+    cv2.imwrite('static/segment/fish_segment.png', thinned)
+    length_object = get_longest_distance('static/segment/fish_segment.png')
 
     return int(round(length_object.value, 0))

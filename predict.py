@@ -10,7 +10,6 @@ from features.insert_into_database import insert_into_database
 
 
 def predict(img):
-    db = connect_database()
     img_path = img
     # Load a model
     model = YOLO('modules/best.pt')
@@ -33,8 +32,8 @@ def predict(img):
         image_with_masks = overlay(image_with_contours, mask_i, color=(255, 255, 255), alpha=1)
 
         # Saving the image
-        cv2.imwrite(f'static/segment/object_{i}.jpg', image_with_masks)
-        fish_length = get_skeleton(f'static/segment/object_{i}.jpg')
+        cv2.imwrite(f'static/segment/object_{i}.png', image_with_masks)
+        fish_length = get_skeleton(f'static/segment/object_{i}.png')
         fish_array.append(class_name)
         fish_array.append(fish_length)
         fish_weight = calculate_weight(fish_array)

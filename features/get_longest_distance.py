@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from fil_finder import FilFinder2D
 import astropy.units as u
 
+
 def get_longest_distance(img):
     skeleton = cv2.imread(img, 0) #in numpy array format
     fil = FilFinder2D(skeleton, distance=250 * u.pc, mask=skeleton)
@@ -14,5 +15,5 @@ def get_longest_distance(img):
     plt.imshow(fil.skeleton, cmap='gray')
     plt.contour(fil.skeleton_longpath, colors='r')
     plt.axis('off')
-    # plt.show()
+    plt.show()
     return fil.lengths()[0]
