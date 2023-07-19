@@ -7,7 +7,7 @@ from .get_longest_distance import get_longest_distance
 def get_skeleton(img):
     images = np.array(Image.open(img))
 
-    kernel = np.ones((20, 20), np.uint8)
+    kernel = np.ones((25, 25), np.uint8)
     images = cv2.erode(images, kernel, iterations=2)
 
     thinned = cv2.ximgproc.thinning(cv2.cvtColor(images, cv2.COLOR_RGB2GRAY))

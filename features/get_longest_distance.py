@@ -15,5 +15,4 @@ def get_longest_distance(img):
     plt.imshow(fil.skeleton, cmap='gray')
     plt.contour(fil.skeleton_longpath, colors='r')
     plt.axis('off')
-    plt.show()
     return fil.lengths()[0]

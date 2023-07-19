@@ -12,13 +12,13 @@
   <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1>History</h1>
+          <h1>Lịch sử</h1>
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Total weight</th>
-                <th scope="col">Created at</th>
+                <th scope="col">Tổng khối lượng</th>
+                <th scope="col">Ngày đo</th>
               </tr>
             </thead>
             <tbody>
@@ -34,32 +34,32 @@
         </div>
         <div class="col-md-6">
           <div class="mb-5">
-            <h1>Chart</h1>
+            <h1>Biểu đồ</h1>
             <canvas id="myChart" max-width="100" max-height="100"></canvas>
           </div>
           <div>
-            <h1>Results</h1>
-            <div>Số liệu của lần đo gần nhất ngày {{ fishes[-1]['created_at'] }} là: </div>
-            <div>Trọng lượng tổng: {{ fishes[-1]['weight'] }} kg</div>
-            {% if fishes[-1]['number_carp'] != 0 %}
-                <div>Chiều dài trung bình của cá chép là: {{ fishes[-1]['length_carp'] }}  cm</div>
-                <div>Khối lượng trung bình của cá chép là: {{ fishes[-1]['weight_carp'] }}  kg</div>
-                <div>Số lượng của cá chép là: {{ fishes[-1]['number_carp'] }}  con</div>
+            <h1>Dự đoán</h1>
+            <div>Số liệu của lần đo gần nhất ngày {{ fishes[0]['created_at'] }} là: </div>
+            <div>Trọng lượng tổng: {{ fishes[0]['weight'] }} kg</div>
+            {% if fishes[0]['number_carp'] != 0 %}
+                <div>Chiều dài trung bình của cá chép là: {{ fishes[0]['length_carp'] }}  cm</div>
+                <div>Khối lượng trung bình của cá chép là: {{ fishes[0]['weight_carp'] }}  kg</div>
+                <div>Số lượng của cá chép là: {{ fishes[0]['number_carp'] }}  con</div>
             {% endif %}
-            {% if fishes[-1]['number_tilapia'] != 0 %}
-                <div>Chiều dài trung bình của cá rô phi là: {{ fishes[-1]['length_tilapia'] }}  cm</div>
-                <div>Khối lượng trung bình của cá rô phi là: {{ fishes[-1]['weight_tilapia'] }}  kg</div>
-                <div>Số lượng của cá rô phi là: {{ fishes[-1]['number_tilapia'] }}  con</div>
+            {% if fishes[0]['number_tilapia'] != 0 %}
+                <div>Chiều dài trung bình của cá rô phi là: {{ fishes[0]['length_tilapia'] }}  cm</div>
+                <div>Khối lượng trung bình của cá rô phi là: {{ fishes[0]['weight_tilapia'] }}  kg</div>
+                <div>Số lượng của cá rô phi là: {{ fishes[0]['number_tilapia'] }}  con</div>
             {% endif %}
-            {% if fishes[-1]['number_catfish'] != 0 %}
-                <div>Chiều dài trung bình của cá da trơn là: {{ fishes[-1]['length_catfish'] }}  cm</div>
-                <div>Khối lượng trung bình của cá da trơn là: {{ fishes[-1]['weight_catfish'] }}  kg</div>
-                <div>Số lượng của cá da trơn là: {{ fishes[-1]['number_catfish'] }}  con</div>
+            {% if fishes[0]['number_catfish'] != 0 %}
+                <div>Chiều dài trung bình của cá da trơn là: {{ fishes[0]['length_catfish'] }}  cm</div>
+                <div>Khối lượng trung bình của cá da trơn là: {{ fishes[0]['weight_catfish'] }}  kg</div>
+                <div>Số lượng của cá da trơn là: {{ fishes[0]['number_catfish'] }}  con</div>
             {% endif %}
-            {% if fishes[-1]['number_perch'] != 0 %}
-                <div>Chiều dài trung bình của cá rô là: {{ fishes[-1]['length_perch'] }}  cm</div>
-                <div>Khối lượng trung bình của cá rô là: {{ fishes[-1]['weight_perch'] }}  kg</div>
-                <div>Số lượng của cá rô là: {{ fishes[-1]['number_perch'] }}  con</div>
+            {% if fishes[0]['number_perch'] != 0 %}
+                <div>Chiều dài trung bình của cá rô là: {{ fishes[0]['length_perch'] }}  cm</div>
+                <div>Khối lượng trung bình của cá rô là: {{ fishes[0]['weight_perch'] }}  kg</div>
+                <div>Số lượng của cá rô là: {{ fishes[0]['number_perch'] }}  con</div>
             {% endif %}
             <div class="mt-5">Nhập số ngày muốn dự đoán trọng lượng</div>
             <div class="input-group mt-2 mb-2">
@@ -82,8 +82,8 @@
     var ctx = document.getElementById('myChart').getContext('2d');
     var fishes = {{ fishes | tojson }};
 
-    weights = fishes.map(fish => Number(fish.weight))
-    dates = fishes.map(fish => new Date(fish.created_at).toLocaleDateString())
+    weights = fishes.map(fish => Number(fish.weight)).reverse()
+    dates = fishes.map(fish => new Date(fish.created_at).toLocaleDateString()).reverse()
 
     var myChart = new Chart(ctx, {
         type: 'line',
