@@ -40,25 +40,25 @@
           <div>
             <h1>Dự đoán</h1>
             <div>Số liệu của lần đo gần nhất ngày {{ fishes[0]['created_at'] }} là: </div>
-            <div>Trọng lượng tổng: {{ fishes[0]['weight'] }} kg</div>
+            <div>Trọng lượng tổng: {{ fishes[0]['weight'] }} g</div>
             {% if fishes[0]['number_carp'] != 0 %}
                 <div>Chiều dài trung bình của cá chép là: {{ fishes[0]['length_carp'] }}  cm</div>
-                <div>Khối lượng trung bình của cá chép là: {{ fishes[0]['weight_carp'] }}  kg</div>
+                <div>Khối lượng trung bình của cá chép là: {{ fishes[0]['weight_carp'] }}  g</div>
                 <div>Số lượng của cá chép là: {{ fishes[0]['number_carp'] }}  con</div>
             {% endif %}
             {% if fishes[0]['number_tilapia'] != 0 %}
                 <div>Chiều dài trung bình của cá rô phi là: {{ fishes[0]['length_tilapia'] }}  cm</div>
-                <div>Khối lượng trung bình của cá rô phi là: {{ fishes[0]['weight_tilapia'] }}  kg</div>
+                <div>Khối lượng trung bình của cá rô phi là: {{ fishes[0]['weight_tilapia'] }}  g</div>
                 <div>Số lượng của cá rô phi là: {{ fishes[0]['number_tilapia'] }}  con</div>
             {% endif %}
             {% if fishes[0]['number_catfish'] != 0 %}
                 <div>Chiều dài trung bình của cá da trơn là: {{ fishes[0]['length_catfish'] }}  cm</div>
-                <div>Khối lượng trung bình của cá da trơn là: {{ fishes[0]['weight_catfish'] }}  kg</div>
+                <div>Khối lượng trung bình của cá da trơn là: {{ fishes[0]['weight_catfish'] }}  g</div>
                 <div>Số lượng của cá da trơn là: {{ fishes[0]['number_catfish'] }}  con</div>
             {% endif %}
             {% if fishes[0]['number_perch'] != 0 %}
                 <div>Chiều dài trung bình của cá rô là: {{ fishes[0]['length_perch'] }}  cm</div>
-                <div>Khối lượng trung bình của cá rô là: {{ fishes[0]['weight_perch'] }}  kg</div>
+                <div>Khối lượng trung bình của cá rô là: {{ fishes[0]['weight_perch'] }}  g</div>
                 <div>Số lượng của cá rô là: {{ fishes[0]['number_perch'] }}  con</div>
             {% endif %}
             <div class="mt-5">Nhập số ngày muốn dự đoán trọng lượng</div>
@@ -131,30 +131,30 @@
             console.log(fishes)
             var fishesContainer = $('#days_container');
             var fishesHTML = 'Kết quả: '
-            fishesHTML += '<div>' + 'Trọng lượng tổng dự đoán là: ' + fishes[0] + 'kg' + '</div>';
+            fishesHTML += '<div>' + 'Trọng lượng tổng dự đoán là: ' + fishes[0] + 'g' + '</div>';
             if(fishes[1] != 0){
               fishesHTML += '<div>' + 'Chiều dài trung bình của cá chép là: ' + fishes[1] + 'cm' + '</div>'
             }
             if(fishes[5] != 0){
-              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá chép là: ' + fishes[5] + 'kg' + '</div>'
+              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá chép là: ' + fishes[5] + 'g' + '</div>'
             }
             if(fishes[2] != 0){
               fishesHTML += '<div>' + 'Chiều dài trung bình của cá rô phi là: ' + fishes[2] + 'cm' + '</div>'
             }
             if(fishes[6] != 0){
-              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá rô phi là: ' + fishes[6] + 'kg' + '</div>'
+              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá rô phi là: ' + fishes[6] + 'g' + '</div>'
             }
             if(fishes[3] != 0){
               fishesHTML += '<div>' + 'Chiều dài trung bình của cá da trơn là: ' + fishes[3] + 'cm' + '</div>'
             }
             if(fishes[7] != 0){
-              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá da trơn là: ' + fishes[7] + 'kg' + '</div>'
+              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá da trơn là: ' + fishes[7] + 'g' + '</div>'
             }
             if(fishes[4] != 0){
               fishesHTML += '<div>' + 'Chiều dài trung bình của cá rô là: ' + fishes[4] + 'cm' + '</div>'
             }
             if(fishes[8] != 0){
-              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá rô là: ' + fishes[8] + 'kg' + '</div>'
+              fishesHTML += '<div>' + 'Trọng lượng trung bình của cá rô là: ' + fishes[8] + 'g' + '</div>'
             }
 
             fishesContainer.html(fishesHTML);

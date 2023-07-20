@@ -35,22 +35,6 @@
             text-align: center;
             padding: 30px;
         }
-        .footer
-        {
-
-        }
-
-        .info
-        {
-            text-align:left;
-            color:gray;
-            width:30%;
-            margin:auto;
-            padding:20px;
-            font-size:14px;
-        }
-
-
         .content {
             width: 100%;
         }
@@ -143,25 +127,25 @@
             {% if fishes['carp']['number'] != 0 %}
             <div class="result_specific">Có {{ fishes['carp']['number'] }} con cá chép
                 với chiều dài trung bình là {{ (fishes['carp']['length'] / fishes['carp']['number']) | round_decimal(1)  }} cm
-                và trọng lượng trung bình là {{ (fishes['carp']['weight'] / fishes['carp']['number']) | round_decimal(1) }} kg
+                và trọng lượng trung bình là {{ (fishes['carp']['weight'] / fishes['carp']['number']) | round_decimal(1) }} g
             </div>
             {% endif %}
             {% if fishes['catfish']['number'] != 0 %}
             <div class="result_specific">Có {{ fishes['catfish']['number'] }} con cá da trơn
                 với chiều dài trung bình là {{ (fishes['catfish']['length'] / fishes['catfish']['number']) | round_decimal(1) }} cm
-                và trọng lượng trung bình là {{ (fishes['catfish']['weight'] / fishes['catfish']['number']) | round_decimal(1) }} kg
+                và trọng lượng trung bình là {{ (fishes['catfish']['weight'] / fishes['catfish']['number']) | round_decimal(1) }} g
             </div>
             {% endif %}
             {% if fishes['tilapia']['number'] != 0 %}
             <div class="result_specific">Có {{ fishes['tilapia']['number'] }} con cá rô phi
                 với chiều dài trung bình là {{ (fishes['tilapia']['length'] / fishes['tilapia']['number']) | round_decimal(1) }} cm
-                và trọng lượng trung bình là {{ (fishes['tilapia']['weight'] / fishes['tilapia']['number']) | round_decimal(1) }} kg
+                và trọng lượng trung bình là {{ (fishes['tilapia']['weight'] / fishes['tilapia']['number']) | round_decimal(1) }} g
             </div>
             {% endif %}
             {% if fishes['perch']['number'] != 0 %}
             <div class="result_specific">Có {{ fishes['perch']['number'] }} con cá rô
                 với chiều dài trung bình là {{ (fishes['perch']['length'] / fishes['perch']['number']) | round_decimal(1) }} cm
-                và trọng lượng trung bình là {{ (fishes['perch']['weight'] / fishes['perch']['number']) | round_decimal(1) }} kg
+                và trọng lượng trung bình là {{ (fishes['perch']['weight'] / fishes['perch']['number']) | round_decimal(1) }} g
             </div>
             {% endif %}
         {% endif %}
