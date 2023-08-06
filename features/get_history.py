@@ -93,5 +93,5 @@ def predict_future_weight(target_date):
     predicted_weight_perch = last_weight_perch + (weight_perch_average * num_days)
 
     return [predicted_weight, predicted_length_carp, predicted_length_tilapia, predicted_length_catfish,
-            predicted_length_perch, predicted_weight_carp, predicted_weight_tilapia, predicted_weight_catfish,
-            predicted_weight_perch]
+            predicted_length_perch, round(predicted_weight_carp, 1), round(predicted_weight_tilapia, 1), round(predicted_weight_catfish, 1),
+            round(predicted_weight_perch, 1)]
